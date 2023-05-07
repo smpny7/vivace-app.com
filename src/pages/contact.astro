@@ -1,0 +1,155 @@
+---
+import { Image } from "@astrojs/image/components";
+import Layout from "../layout.astro";
+
+const title = "Contact Us";
+const description =
+  "We accept inquiries such as problems in the app and additional songs.";
+---
+
+<Layout title={title} description={description}>
+  <script
+    is:inline
+    src="https://www.google.com/recaptcha/api.js?render=6LdovSMlAAAAAN5oZc43DW7gfqEcx8k9k7vkBgL0&hl=ja"
+  ></script>
+  <script>
+    const form = document.getElementById("form");
+    form?.addEventListener("submit", submitFormData);
+
+    function submitFormData(event: Event) {
+      event.preventDefault();
+      grecaptcha.ready(() => {
+        grecaptcha
+          .execute("6LdovSMlAAAAAN5oZc43DW7gfqEcx8k9k7vkBgL0", {
+            action: "submit",
+          })
+          .then(async (token) => {
+            const target = event.target as typeof event.target & {
+              name: { value: string };
+              email: { value: string };
+              type: { value: string };
+              message: { value: string };
+            };
+
+            const data = {
+              name: target.name.value,
+              email: target.email.value,
+              type: target.type.value,
+              message: target.message.value,
+              googleReCaptchaToken: token,
+            };
+
+            const formData = new FormData();
+            Object.entries(data).forEach(([key, value]) => {
+              formData.append(key, value);
+            });
+
+            try {
+              const response = await sendRequest(formData);
+              if (response.ok) {
+                location.href = "/thanks";
+              } else {
+                location.href = "/error";
+              }
+            } catch (err) {
+              location.href = "/error";
+            }
+          });
+      });
+    }
+
+    async function sendRequest(formData: FormData) {
+      return await fetch("https://smpny7.form.newt.so/v1/VnOI7UsKD", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+    }
+  </script>
+  <div class="grid min-h-screen place-content-center py-16">
+    <h1 class="px-5 text-4xl text-primary sm:px-0">
+      <span class="mr-2 inline-block">Love to hear</span>
+      <span class="inline-block">from you,</span>
+      <br />
+      Get in touch 👋
+    </h1>
+
+    <form id="form" class="mx-auto mt-10 w-full px-5 sm:w-[600px] sm:px-0">
+      <div class="mb-4 sm:grid sm:grid-cols-2 sm:gap-8">
+        <div class="mb-4 sm:mb-0">
+          <label for="name" class="block text-primary">Your name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            autocomplete="name"
+            placeholder="John Smith"
+            maxlength={80}
+            required
+            class="mt-1 w-full appearance-none rounded-none border-2 border-[#FAFAFA] bg-[#FAFAFA] px-5 py-3 text-primary outline-none placeholder:text-[#9D9D9D] focus:border-primary"
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-primary">Your email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="sample@gmail.com"
+            maxlength={80}
+            required
+            class="mt-1 w-full appearance-none rounded-none border-2 border-[#FAFAFA] bg-[#FAFAFA] px-5 py-3 text-primary outline-none placeholder:text-[#9D9D9D] focus:border-primary"
+          />
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="type" class="block text-primary">Question type</label>
+        <div class="relative">
+          <select
+            id="type"
+            name="type"
+            value="In-app issue"
+            required
+            class="mt-1 w-full appearance-none rounded-none border-2 border-[#FAFAFA] bg-[#FAFAFA] px-5 py-3 text-primary outline-none placeholder:text-[#9D9D9D] focus:border-primary"
+          >
+            <option>In-app issue</option>
+            <option>Providing music</option>
+            <option>Other</option>
+          </select>
+          <div
+            class="absolute right-4 top-1 bottom-0 grid place-content-center"
+          >
+            <Image
+              src="/svg/arrow-down.svg"
+              height={24}
+              width={24}
+              alt=""
+              format="svg"
+            />
+          </div>
+        </div>
+      </div>
+
+      <label for="message" class="block text-primary">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        rows={10}
+        maxlength={65536}
+        required
+        class="mt-1 w-full appearance-none rounded-none border-2 border-[#FAFAFA] bg-[#FAFAFA] px-5 py-3 text-primary outline-none placeholder:text-[#9D9D9D] focus:border-primary"
+      ></textarea>
+
+      <button
+        type="submit"
+        class="mt-6 block w-full border-2 border-primary bg-primary py-4 tracking-wider text-white outline-none focus:border-gray-400"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</Layout>

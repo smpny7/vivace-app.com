@@ -1,0 +1,204 @@
+---
+import Layout from "../layout.astro";
+import { Image, Picture } from "@astrojs/image/components";
+import Video from "../components/video";
+
+const title = "VIVACE ~ original music ~";
+const description =
+  "The official website of VIVACE, a sound game developed with complete open source. Completely free to play! Many original songs are recorded, and new songs are added regularly.";
+---
+
+<Layout title={title} description={description}>
+  <div class="relative">
+    <Picture
+      src="/img/background.avif"
+      class="h-screen object-cover w-full sm:h-[815px] md:h-[1155px] xl:h-screen"
+      widths={[640, 768, 1024, 1280, 1536]}
+      aspectRatio="1536:1024"
+      alt=""
+    />
+    <div
+      class="absolute top-0 left-0 right-0 bottom-0 grid place-content-center xl:grid-cols-2"
+    >
+      <div class="grid place-content-center">
+        <h1
+          class="text-center font-keania text-6xl leading-[60px] tracking-widest text-white drop-shadow-[0_4px_4px_#07AEE4] sm:text-[100px] sm:leading-[122px] md:text-[120px] md:leading-[146px]"
+          style={{ textShadow: "2px 2px 0 #ADC3FC" }}
+        >
+          VIVACE
+        </h1>
+        <p
+          class="text-center font-keania text-2xl tracking-widest text-white drop-shadow-[0_4px_4px_#07AEE4] sm:text-[44px] md:text-[50px]"
+          style={{ textShadow: "2px 2px 0 #ADC3FC" }}
+        >
+          ~ original music ~
+        </p>
+        <div
+          class="mt-9 flex w-[260px] justify-center space-x-2 sm:mt-16 sm:w-[433px] md:mt-20 md:w-auto md:space-x-5"
+        >
+          <a
+            href="https://bit.ly/vivace-app-ios"
+            target="_blank"
+            rel="noopener"
+          >
+            <Image
+              src="/svg/appstore.svg"
+              height={67}
+              width={226}
+              class="duration-200 hover:scale-[1.02]"
+              alt="Download on the App Store"
+              format="svg"
+            />
+          </a>
+          <a
+            href="https://bit.ly/vivace-app-android"
+            target="_blank"
+            rel="noopener"
+          >
+            <Image
+              src="/svg/googleplay.svg"
+              height={67}
+              width={226}
+              class="duration-200 hover:scale-[1.02]"
+              alt="Get it on Google Play"
+              format="svg"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="mt-16 overflow-hidden px-2 sm:px-5 md:px-10 lg:px-0 xl:mt-0">
+        <div class="relative w-[401px] sm:w-[586px] md:w-[931px]">
+          <Picture
+            src="/img/screenshot.avif"
+            widths={[401, 586, 931]}
+            aspectRatio="1863:966"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-6 sm:px-10">
+    <div class="mt-14 grid gap-4 sm:mt-20 lg:grid-cols-2 2xl:max-w-7xl">
+      <div class="pr-8 xl:pr-16">
+        <h2 class="text-4xl text-primary">Our Mission</h2>
+        <p class="mt-6 leading-6 tracking-wide text-secondary">
+          We&apos;ve been looking for a platform to publish the music we produce
+          for years. A big company&apos;s well-known platform has a large number
+          of great productions buried in it.
+        </p>
+        <p class="mt-4 leading-6 tracking-wide text-secondary">
+          Therefore, our mission is to take a different approach from other
+          music distribution services and create a platform that can be listened
+          to over and over again, and to make that platform prosper.
+        </p>
+      </div>
+
+      <div
+        class="relative mb-20 mt-2 grid place-content-center md:mt-10 lg:mt-0"
+      >
+        <Picture
+          src="/img/mission.avif"
+          widths={[412, 496]}
+          aspectRatio="496:276"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <Video client:visible />
+
+    <div class="mt-14 grid gap-4 sm:mt-20 lg:grid-cols-2 2xl:max-w-7xl">
+      <div
+        class="relative order-2 mb-10 mt-10 grid justify-start md:mt-10 lg:order-1 lg:mb-20 lg:mt-0"
+      >
+        <Picture
+          src="/img/contact.avif"
+          widths={[412, 423]}
+          aspectRatio="423:300"
+          class="w-full max-w-[423px]"
+          alt=""
+        />
+      </div>
+
+      <div class="order-1 pr-8 lg:order-2 xl:pr-16">
+        <h2 class="text-4xl text-primary">Contact</h2>
+        <p class="mt-6 leading-6 tracking-wide text-secondary">
+          If you have any questions or would like to contribute music please
+          fill out this form.
+        </p>
+        <p class="mt-4 mb-10 leading-6 tracking-wide text-secondary">
+          We will reply in English or Japanese.
+        </p>
+
+        <a
+          href="/contact"
+          class="inline-flex items-center rounded-3xl bg-gradient-to-br from-[#29ABFF] to-[#4892FF] py-4 pl-8 pr-4 text-lg text-white duration-200 hover:scale-[1.02]"
+        >
+          Contact Us
+          <Image
+            src="/svg/arrow-right.svg"
+            height={24}
+            width={24}
+            class="ml-16 inline"
+            alt="Arrow Right"
+            format="svg"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative">
+    <Picture
+      src="/img/footer.avif"
+      class="h-[400px] object-cover w-full"
+      widths={[640, 768, 1024, 1280, 1536]}
+      aspectRatio="1536:1056"
+      alt=""
+    />
+    <div
+      class="absolute top-0 left-0 right-0 bottom-0 grid place-content-center"
+    >
+      <h1
+        class="text-center font-keania text-7xl leading-[80px] tracking-widest text-white drop-shadow-[0_4px_4px_#07AEE4]"
+        style={{ textShadow: "2px 2px 0 #ADC3FC" }}
+      >
+        VIVACE
+      </h1>
+      <p
+        class="text-center font-keania text-3xl tracking-widest text-white drop-shadow-[0_4px_4px_#07AEE4]"
+        style={{ textShadow: "2px 2px 0 #ADC3FC" }}
+      >
+        ~ original music ~
+      </p>
+      <div class="mt-9 flex w-[300px] justify-center space-x-2">
+        <a href="https://bit.ly/vivace-app-ios" target="_blank" rel="noopener">
+          <Image
+            src="/svg/appstore.svg"
+            height={67}
+            width={226}
+            class="duration-200 hover:scale-[1.02]"
+            alt="Download on the App Store"
+            format="svg"
+          />
+        </a>
+        <a
+          href="https://bit.ly/vivace-app-android"
+          target="_blank"
+          rel="noopener"
+        >
+          <Image
+            src="/svg/googleplay.svg"
+            height={67}
+            width={226}
+            class="duration-200 hover:scale-[1.02]"
+            alt="Get it on Google Play"
+            format="svg"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

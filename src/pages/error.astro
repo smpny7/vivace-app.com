@@ -1,0 +1,20 @@
+---
+import { Image } from "@astrojs/image/components";
+import Layout from "../layout.astro";
+
+const title = "Successfully submitted form";
+const description = "Form submission completed successfully.";
+---
+
+<Layout title={title} description={description}>
+  <div class="grid min-h-screen max-w-sm mx-auto place-content-center p-5">
+    <h1 class="mt-16 text-4xl leading-[50px] text-primary">Send Failed 😔</h1>
+
+    <a
+      href="/"
+      class="mt-10 block w-full border-2 border-primary bg-primary py-4 text-center tracking-wider text-white outline-none focus:border-gray-400"
+    >
+      Back to Home
+    </a>
+  </div>
+</Layout>
