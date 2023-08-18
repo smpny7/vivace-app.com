@@ -1,12 +1,12 @@
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Lora";
   src: url("/fonts/Lora.woff2") format("woff2"),
     url("/fonts/Lora.woff") format("woff");
 }
 
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Keania One";
   src: url("/fonts/KeaniaOne.woff2") format("woff2"),
     url("/fonts/KeaniaOne.woff") format("woff");
