@@ -1,0 +1,69 @@
+---
+import { Image } from "@astrojs/image/components";
+import Layout from "../layout.astro";
+
+const title = "Privacy Policy";
+const description = "About the privacy policy of the app.";
+---
+
+<Layout title={title} description={description}>
+  <div class="max-w-[600px] mx-auto px-8 py-12">
+    <h1 class="text-3xl text-primary text-center">Privacy Policy</h1>
+
+    <p class="text-md text-primary mt-12">
+      Please note that this Privacy Policy provides details to users who have
+      previously engaged with our application. It outlines the nature of the
+      information we gather, the reasons behind its collection, and the
+      procedures we adopt for data disposal upon service termination.
+    </p>
+
+    <h2 class="text-2xl text-primary mt-12">1. Collection and Usage</h2>
+
+    <h3 class="text-xl text-primary mt-8 pl-4 border-l-4 border-primary">Data Provided by Users</h3>
+
+    <p class="text-md text-primary mt-4">
+      In this application, we are collecting the following data from our users:
+    </p>
+
+    <ul class="list-disc text-md text-primary mt-4 ml-4">
+      <li>Unique Nickname</li>
+    </ul>
+
+    <h3 class="text-xl text-primary mt-8 pl-4 border-l-4 border-primary">Data Provided During Game Play</h3>
+
+    <p class="text-md text-primary mt-4">
+      The information provided when playing games in this application is as
+      follows:
+    </p>
+
+    <ul class="list-disc text-md text-primary mt-4 ml-4">
+      <li>Scores for each song and level by the player</li>
+      <li>Last login date</li>
+    </ul>
+
+    <h3 class="text-xl text-primary mt-8 pl-4 border-l-4 border-primary">Purpose of Using the Data</h3>
+
+    <p class="text-md text-primary mt-4">
+      The collected data is used for user identification while ensuring
+      anonymity, providing a scoring function, and cleaning up information of
+      long-term inactive users.
+    </p>
+
+    <h2 class="text-2xl text-primary mt-12">2. Data Erasure</h2>
+
+    <p class="text-md text-primary mt-4">
+      The data collected as described above was completely deleted as of April
+      17, 2024.
+    </p>
+
+    <h2 class="text-2xl text-primary mt-12">3. Contact Information</h2>
+
+    <p class="text-md text-primary mt-4">
+      If you have any questions or concerns about privacy, please contact the
+      following.
+      <br />
+      <br />
+      Email: support@ikep.dev
+    </p>
+  </div>
+</Layout>
